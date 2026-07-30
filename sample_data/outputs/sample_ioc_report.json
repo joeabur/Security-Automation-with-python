@@ -1,0 +1,28 @@
+[
+  {
+    "ip": "198.51.100.25",
+    "risk_score": 85,
+    "risk_level": "high",
+    "country": "United States",
+    "ports": [80, 443],
+    "vt_malicious": true,
+    "os": "Linux",
+    "notes": [
+      "VirusTotal reports malicious behavior",
+      "Exposed services on ports: [80, 443]"
+    ]
+  },
+  {
+    "ip": "203.0.113.12",
+    "risk_score": 55,
+    "risk_level": "medium",
+    "country": "Canada",
+    "ports": [22],
+    "vt_malicious": false,
+    "os": null,
+    "notes": [
+      "VirusTotal reputation score is elevated",
+      "Exposed services on ports: [22]"
+    ]
+  }
+]

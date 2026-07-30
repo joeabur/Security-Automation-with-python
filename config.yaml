@@ -1,0 +1,28 @@
+project:
+  name: "SOC Automation with Python"
+  version: "0.1.0"
+
+logging:
+  level: INFO
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/soc_automation.log"
+
+api:
+  virustotal:
+    base_url: "https://www.virustotal.com/api/v3"
+    timeout: 15
+  shodan:
+    base_url: "https://api.shodan.io"
+    timeout: 15
+  ipinfo:
+    base_url: "https://ipinfo.io"
+    timeout: 15
+  jira:
+    timeout: 20
+
+thresholds:
+  risk_score: 70
+  max_iocs_per_run: 100
+
+pipeline:
+  default_output_dir: "reports"
