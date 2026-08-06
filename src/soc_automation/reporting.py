@@ -14,7 +14,12 @@ class ReportGenerator:
 
     def to_json(self, data: list[EnrichmentResult], filename: str = "ioc_report.json") -> str:
         payload = [self._serialize_result(result) for result in data]
-        target = self.output_dir / filename
+        base_real = self.output_dir.resolve()
+        target = (self.output_dir / filename).resolve()
+        try:
+            target.relative_to(base_real)
+        except ValueError:
+            raise Exception("Invalid file path")
         target.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         return str(target)
 
@@ -60,7 +65,12 @@ class ReportGenerator:
 </body>
 </html>
 """
-        target = self.output_dir / filename
+        base_real = self.output_dir.resolve()
+        target = (self.output_dir / filename).resolve()
+        try:
+            target.relative_to(base_real)
+        except ValueError:
+            raise Exception("Invalid file path")
         target.write_text(html, encoding="utf-8")
         return str(target)
 
